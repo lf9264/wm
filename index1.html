@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>完美微商智能回复</title>
+<link rel="stylesheet" type="text/css" href="chat.css" />
+<style>a{ TEXT-DECORATION:none}a:hover{TEXT-DECORATION:underline }</style>   
+<script src="jquery.min.js"></script>
+<script src="flexible.js"></script>
+</head>
+<body>
+
+<header class="header">
+	<a class="back" href="javascript:history.back()"></a>
+	<h5 class="tit">完美微商智能回复</h5>
+	<div class="right"><a href="index.html">返回</a></div>
+</header>
+<div class="message">
+
+<div class="send">
+	
+ 	</div>
+	</div>
+</div>
+	
+<div class="footer">
+ <img src="https://nim-nosdn.netease.im/MTExNTUxNzE=/bmltYV8zMzY4NzE2MzU4NV8xNjYzMjcwMDk1NzU0X2YzY2UwYzY4LTRhZGEtNDJiNS05M2IzLTAyOTkyZjZlZmRlZg==?createTime=1663270096250" alt="" />
+	<input type="text"  />
+	<p>发送</p>
+</div>
+
+<script type="text/javascript">
+/*发送消息*/
+function send(headSrc,str){
+	var html="<div class='send'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*接受消息*/
+function show(headSrc,str){
+	var html="<div class='show'><div class='msg'><img src="+headSrc+" />"+
+	"<p><i class='msg_input'></i>"+str+"</p></div></div>";
+	upView(html);
+}
+/*更新视图*/
+function upView(html){
+	$('.message').append(html);
+	$('body').animate({scrollTop:$('.message').outerHeight()-window.innerHeight},200)
+}
+function sj(){
+	return parseInt(Math.random()*10)
+}
+$(function(){
+	$('.footer').on('keyup','input',function(){
+		if($(this).val().length>0){
+			$(this).next().css('background','#114F8E').prop('disabled',true);
+		
+		}else{
+			$(this).next().css('background','#ddd').prop('disabled',false);
+		}
+	})
+	$('.footer p').click(function(){
+		show("logo.png",$(this).prev().val());
+		test();
+	})
+})
+
+/*测试数据*/
+var arr=['<a href="https://lf9264.github.io/wm/">先安装主程序,在安装主配置,打开主程序激活,在打开主配置一次就可以了,打开一次主配置就可以把主配置卸载了,然后再去主程序登陆微信即可,首次登录右上角⊕号没有功能就划掉后台重进一次就好了</a>','完美微商,安全稳定,超强防封,源包源码,专业团队,顶尖技术,持续更新','<a href=http://bbs1.people.com.cn/img_new/Y0/5E/C1/CE/80/1663742103168.jpeg><img src="http://bbs1.people.com.cn/img_new/Y0/5E/C1/CE/80/1663742103168.jpeg">','王者归来,安卓首选,完美兼容鸿蒙3.0及Android13系统'];
+var imgarr=['images/touxiangm.png','images/touxiangm.png']
+test()
+function test(){
+	$(arr).each(function(i){
+		setTimeout(function(){
+			send("logo.png",arr[i])
+		},sj()*500)
+	})
+}
+</script>
+
+</body>
+</html>
